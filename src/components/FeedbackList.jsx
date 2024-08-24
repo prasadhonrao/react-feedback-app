@@ -11,7 +11,13 @@ const FeedbackList = (prop) => {
   return (
     <div className="feedback-list">
       {feedback.map((item) => (
-        <FeedbackItem key={item.id} rating={item.rating} text={item.text} />
+        <FeedbackItem
+          key={item.id}
+          id={item.id}
+          rating={item.rating}
+          text={item.text}
+          handleDelete={(id) => prop.handleDelete(id)}
+        />
       ))}
     </div>
   );
