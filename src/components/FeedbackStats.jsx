@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const FeedbackStats = ({ feedback }) => {
   const totalFeedback = feedback.length;
@@ -11,6 +11,16 @@ const FeedbackStats = ({ feedback }) => {
       <h4>Average Rating: {isNaN(averageRating) ? 0 : averageRating}</h4>
     </div>
   );
+};
+
+FeedbackStats.propTypes = {
+  feedback: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      rating: PropTypes.number.isRequired,
+      text: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default FeedbackStats;
