@@ -13,11 +13,16 @@ function App() {
     setFeedback(feedback.filter((item) => item.id !== id));
   }
 
+  function addFeedback(newFeedback) {
+    newFeedback.id = feedback.length + 1;
+    setFeedback([...feedback, newFeedback]);
+  }
+
   return (
     <>
       <Header text="React Feedback App" />
       <div className="container">
-        <FeedbackForm />
+        <FeedbackForm handleAdd={addFeedback} />
         <FeedbackStats feedback={feedback} />
         <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
       </div>
